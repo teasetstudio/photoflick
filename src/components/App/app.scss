@@ -1,0 +1,9 @@
+.photoflick{
+  height: 100vh;
+  overflow: hidden;
+}
+.page{
+  padding: 10px 50px 10px 130px;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+}
