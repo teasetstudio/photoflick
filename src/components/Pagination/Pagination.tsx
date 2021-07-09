@@ -12,6 +12,7 @@ const PagiNation = () => {
   const dispatch = useDispatch<AppDispatch>();
   const searchText = useSelector((state: RootState) => state.search.text);
   const pages = useSelector((state: RootState) => state.search.pages);
+  const page = useSelector((state: RootState) => state.search.page);
 
   const getData = ({ selected }: PagNum) => {
     console.log("next page", selected + 1);
@@ -39,6 +40,7 @@ const PagiNation = () => {
           nextClassName="page-item"
           nextLinkClassName="page-link"
           activeClassName="active"
+          forcePage={page - 1}
         />
       )}
     </div>
