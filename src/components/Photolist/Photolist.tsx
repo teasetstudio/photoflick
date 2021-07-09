@@ -9,8 +9,9 @@ import {
   Col,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
+import InputTags from "./InputTags";
 import { RootState, AppDispatch } from "../../reducers/store";
-import { addPhoto, removePhoto } from "../../reducers/BookmarksReducer";
+import { removePhoto } from "../../reducers/BookmarksReducer";
 import { IPhoto } from "../../types";
 import "./photolist.scss";
 
@@ -35,16 +36,22 @@ const Photolist = ({ photos }: IProp) => {
                 <Card>
                   <CardImg top src={imgUrl(pic)} alt="No Image" />
                   <CardBody className="text-center">
-                    <CardTitle tag="h6">{pic.title}</CardTitle>
+                    <CardTitle tag="h5">{pic.title}</CardTitle>
 
                     {savedphotos.map((i) => i.id).indexOf(pic.id) < 0 ? (
-                      <Button onClick={() => dispatch(addPhoto(pic))}>
-                        Bookmark it!!
-                      </Button>
+                      <InputTags pic={pic} />
                     ) : (
-                      <Button onClick={() => dispatch(removePhoto(pic))}>
-                        Remove It
-                      </Button>
+                      <>
+                        {pic.userTags && (
+                          <p className="display-6">
+                            <i>Your tags: </i>
+                            <span>{pic.userTags}</span>
+                          </p>
+                        )}
+                        <Button onClick={() => dispatch(removePhoto(pic))}>
+                          Remove It
+                        </Button>
+                      </>
                     )}
                   </CardBody>
                 </Card>

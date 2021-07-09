@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Spinner } from "reactstrap";
 import Photolist from "../../Photolist/Photolist";
-import SearchHeader from "./SearchHeader/SearchHeader";
+import SearchHeader from "./SearchHeader";
 import { RootState } from "../../../reducers/store";
 
 const Search = () => {
@@ -12,7 +12,9 @@ const Search = () => {
   return (
     <div className="page">
       <SearchHeader />
+
       {loading && <Spinner color="dark" />}
+
       {photos && photos.length > 0 ? (
         <Photolist photos={photos} />
       ) : (

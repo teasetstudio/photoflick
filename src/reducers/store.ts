@@ -5,6 +5,7 @@ const store = configureStore({ reducer });
 export default store;
 
 const update = () => {
+  console.log("store", store.getState().search);
   localStorage.setItem(
     "bookmarks",
     JSON.stringify(store.getState().bookmarks.photos || [])

@@ -2,25 +2,40 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IPhoto } from "../types";
 
+interface Iobj {
+  text: string;
+  page: number;
+}
+interface ResData {
+  res: IPhoto[];
+  text: string;
+}
 // async functions
-export const getPhotos = createAsyncThunk<IPhoto[], string>(
-  "home/getCovidStat",
-  async (text) => {
+export const getPhotos = createAsyncThunk<ResData, Iobj>(
+  "search/getPhotos",
+  async (obj) => {
     const res = await axios.get(
-      `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=664f5f15f8352ba837becfa4585e3e2e&tags=${text}&format=json&nojsoncallback=1`
+      `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=664f5f15f8352ba837becfa4585e3e2e&tags=${obj.text}&page=${obj.page}&format=json&nojsoncallback=1`
     );
-    return res.data.photos.photo;
+    console.log("server data", res);
+    return { res: res.data.photos, text: obj.text };
   }
 );
 
 // REDUCER
 interface IState {
   photos: IPhoto[] | null;
+  page: number;
+  pages: number;
+  text: string;
   loading: boolean;
   error: boolean;
 }
 const initialState: IState = {
   photos: null,
+  page: 1,
+  pages: 1,
+  text: "",
   loading: false,
   error: false,
 };
@@ -38,8 +53,11 @@ const SearchReducer = createSlice({
       state.loading = true;
       state.error = false;
     },
-    [getPhotos.fulfilled.type]: (state, action) => {
-      state.photos = action.payload;
+    [getPhotos.fulfilled.type]: (state, { payload }) => {
+      state.photos = payload.res.photo;
+      state.page = payload.res.page;
+      state.pages = payload.res.pages;
+      state.text = payload.text;
       state.loading = false;
       state.error = false;
     },
