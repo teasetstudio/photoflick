@@ -9,10 +9,10 @@ import {
   Col,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "reducers/store";
+import { removePhoto } from "reducers/BookmarksReducer";
+import { IPhoto } from "types";
 import InputTags from "./InputTags";
-import { RootState, AppDispatch } from "../../reducers/store";
-import { removePhoto } from "../../reducers/BookmarksReducer";
-import { IPhoto } from "../../types";
 import "./photolist.scss";
 
 const imgUrl = (pic: IPhoto): string =>
@@ -32,9 +32,14 @@ const Photolist = ({ photos }: IProp) => {
         {photos &&
           photos.map((pic: IPhoto) => (
             <Col key={pic.id} sm="3">
-              <div className="photos-list__item">
+              <div className="my-1">
                 <Card>
-                  <CardImg top src={imgUrl(pic)} alt="No Image" />
+                  <CardImg
+                    className="max-height-200"
+                    top
+                    src={imgUrl(pic)}
+                    alt="No Image"
+                  />
                   <CardBody className="text-center">
                     <CardTitle tag="h5">{pic.title}</CardTitle>
 

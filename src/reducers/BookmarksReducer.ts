@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IPhoto } from "../types";
+import { IPhoto } from "types";
 
 // REDUCER
 interface IState {

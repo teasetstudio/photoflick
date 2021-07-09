@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Button, Input } from "reactstrap";
-import { AppDispatch } from "../../../reducers/store";
-import { getPhotos } from "../../../reducers/SearchReducer";
-import PagiNation from "../../Pagination/Pagination";
+import { AppDispatch } from "reducers/store";
+import { getPhotos } from "reducers/SearchReducer";
+import PagiNation from "components/Pagination/Pagination";
 
 const SearchHeader = () => {
   const dispatch = useDispatch<AppDispatch>();

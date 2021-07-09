@@ -1,9 +1,3 @@
-.photos-list{
-  &__item{
-    margin: 3px 0;
-
-    img {
-      max-height: 180px;
-    }
-  }
+.max-height-200 {
+  max-height: 200px;
 }

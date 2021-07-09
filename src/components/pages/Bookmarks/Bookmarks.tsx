@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../reducers/store";
-import Photolist from "../../Photolist/Photolist";
+import { RootState } from "reducers/store";
+import Photolist from "components/Photolist/Photolist";
 
 const Bookmarks = () => {
   const photos = useSelector((state: RootState) => state.bookmarks.photos);

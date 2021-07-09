@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
-import { AppDispatch, RootState } from "../../reducers/store";
-import { getPhotos } from "../../reducers/SearchReducer";
+import { AppDispatch, RootState } from "reducers/store";
+import { getPhotos } from "reducers/SearchReducer";
 
 type PagNum = {
   selected: number;

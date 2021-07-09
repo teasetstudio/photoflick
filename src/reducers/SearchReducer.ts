@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IPhoto } from "../types";
+import { IPhoto } from "types";
 
 interface Iobj {
   text: string;

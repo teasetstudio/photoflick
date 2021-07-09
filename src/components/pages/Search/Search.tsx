@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Spinner } from "reactstrap";
-import Photolist from "../../Photolist/Photolist";
+import Photolist from "components/Photolist/Photolist";
+import { RootState } from "reducers/store";
 import SearchHeader from "./SearchHeader";
-import { RootState } from "../../../reducers/store";
 
 const Search = () => {
   const photos = useSelector((state: RootState) => state.search.photos);

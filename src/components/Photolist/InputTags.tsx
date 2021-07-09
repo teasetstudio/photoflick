@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
-import { AppDispatch } from "../../reducers/store";
-import { addPhoto } from "../../reducers/BookmarksReducer";
-import { IPhoto } from "../../types";
+import { AppDispatch } from "reducers/store";
+import { addPhoto } from "reducers/BookmarksReducer";
+import { IPhoto } from "types";
 
 interface IProp {
   pic: IPhoto;

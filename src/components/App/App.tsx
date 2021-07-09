@@ -8,7 +8,7 @@ import "./app.scss";
 const App = () => {
   return (
     <Router>
-      <div className="photoflick">
+      <div className="vh-100 overflow-hidden">
         <Header />
         <Sidebar />
         <Route path="/" exact component={Search} />

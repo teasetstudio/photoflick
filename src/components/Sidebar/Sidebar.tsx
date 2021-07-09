@@ -9,11 +9,7 @@ import {
   SidebarContent,
 } from "react-pro-sidebar";
 import { FaRegHeart, FaSearch } from "react-icons/fa";
-import {
-  FiLogOut,
-  FiArrowLeftCircle,
-  FiArrowRightCircle,
-} from "react-icons/fi";
+import { FiUser, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./sidebar.scss";
 
@@ -56,7 +52,7 @@ const Header = () => {
         </SidebarContent>
         <SidebarFooter>
           <Menu iconShape="square">
-            <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+            <MenuItem icon={<FiUser />}>User Name</MenuItem>
           </Menu>
         </SidebarFooter>
       </ProSidebar>
